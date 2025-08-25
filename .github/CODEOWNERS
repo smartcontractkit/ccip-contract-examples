@@ -1,0 +1,3 @@
+# Codeowners for the ccip-contract-examples repository.
+
+* @smartcontractkit/core-solidity @smartcontractkit/ccip-onchain
