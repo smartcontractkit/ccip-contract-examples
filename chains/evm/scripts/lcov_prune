@@ -1,0 +1,25 @@
+#!/bin/bash
+
+set -e
+
+input_coverage_file="./lcov.info"
+output_coverage_file="./lcov.info.pruned"
+
+exclusion_list_ccip=(
+  "contracts/test/*"
+)
+
+echo "Excluding the following files"
+for exclusion in "${exclusion_list_ccip[@]}"; do
+  echo "$exclusion"
+done
+
+lcov_command="lcov --ignore-errors inconsistent --remove $input_coverage_file -o $output_coverage_file"
+
+for exclusion in "${exclusion_list_ccip[@]}"; do
+  lcov_command+=" \"$exclusion\""
+done
+
+lcov_command+=" --rc branch_coverage=1"
+
+eval "$lcov_command"
