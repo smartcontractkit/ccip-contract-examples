@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+
+set -e
+
+echo " ┌──────────────────────────────────────────────┐"
+echo " │             Compiling contracts...           │"
+echo " └──────────────────────────────────────────────┘"
+
+CONTRACTS_DIR="$( cd "$(dirname "$0")" >/dev/null 2>&1 ; cd ../ && pwd -P )"
+ABI_DIR="$CONTRACTS_DIR"/abi/
+mkdir -p "$ABI_DIR"
+export FOUNDRY_PROFILE="compile"
+PROJECT="default"
+
+compileContract() {
+  local contract
+  contract=$(basename "$1")
+  echo "Compiling" "$contract"
+
+  DIR=$CONTRACTS_DIR/solc/$PROJECT/$contract
+
+  local command
+  command="forge build $CONTRACTS_DIR/contracts/"$1.sol" \
+   --root $CONTRACTS_DIR \
+   --extra-output-files bin abi metadata \
+   --build-info \
+   --build-info-path $DIR/build \
+   -o $DIR"
+
+  $command
+
+  # Move the build info to an expected file name
+  mv $(find $DIR/build -type f -name '*.json' ! -name 'build.json') $DIR/build/build.json
+
+  # Copy the generated abi files to a single folder
+  cp "$CONTRACTS_DIR"/solc/$PROJECT/"$contract"/"$contract".sol/"$contract".abi.json "$ABI_DIR""$contract".abi
+}
+
+compileContract stablecoin-governor/TokenGovernor
+compileContract stablecoin-governor/BurnMintWithExternalMinterTokenPool
+compileContract stablecoin-governor/HybridWithExternalMinterTokenPool
+compileContract stablecoin-governor/test/utils/Stablecoin
