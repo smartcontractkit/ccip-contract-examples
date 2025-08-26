@@ -16,7 +16,7 @@ importers:
         version: 1.4.0(ethers@5.8.0)
       '@chainlink/contracts-ccip':
         specifier: https://github.com/smartcontractkit/chainlink-ccip#76af0eb3023d1a704a407098718854b5da6ae10d
-        version: chainlink-ccip#76af0eb3023d1a704a407098718854b5da6ae10d@https://codeload.github.com/smartcontractkit/chainlink-ccip/tar.gz/76af0eb3023d1a704a407098718854b5da6ae10d
+        version: https://codeload.github.com/smartcontractkit/chainlink-ccip/tar.gz/76af0eb3023d1a704a407098718854b5da6ae10d
       '@changesets/cli':
         specifier: ^2.28.1
         version: 2.29.2
@@ -27,8 +27,8 @@ importers:
         specifier: 5.2.0
         version: 5.2.0
       '@openzeppelin/contracts-upgradeable':
-        specifier: 5.2.0
-        version: 5.2.0(@openzeppelin/contracts@5.2.0)
+        specifier: 5.4.0
+        version: 5.4.0(@openzeppelin/contracts@5.2.0)
       semver:
         specifier: ^7.6.3
         version: 7.7.1
@@ -56,6 +56,10 @@ packages:
   '@babel/runtime@7.27.1':
     resolution: {integrity: sha512-1x3D2xEk2fRo3PAhwQwu5UubzgiVWSXTBfWpVd2Mx2AzRqJuDJCsgaDVZ7HB5iGzDW1Hl1sWN2mFyKjmR9uAog==}
     engines: {node: '>=6.9.0'}
+
+  '@chainlink/contracts-ccip@https://codeload.github.com/smartcontractkit/chainlink-ccip/tar.gz/76af0eb3023d1a704a407098718854b5da6ae10d':
+    resolution: {tarball: https://codeload.github.com/smartcontractkit/chainlink-ccip/tar.gz/76af0eb3023d1a704a407098718854b5da6ae10d}
+    version: 0.0.0
 
   '@chainlink/contracts@1.4.0':
     resolution: {integrity: sha512-SpNCJ0TPOI6pa2l702Wk4WIP8ccw5ARcRP1E/ZTqaFffXNoZeF03WhsVL8f3l3OTRFA9Z40O5KcZzmJmZQkoFA==}
@@ -252,10 +256,10 @@ packages:
   '@openzeppelin/contracts-upgradeable@4.9.6':
     resolution: {integrity: sha512-m4iHazOsOCv1DgM7eD7GupTJ+NFVujRZt1wzddDPSVGpWdKq1SKkla5htKG7+IS4d2XOCtzkUNwRZ7Vq5aEUMA==}
 
-  '@openzeppelin/contracts-upgradeable@5.2.0':
-    resolution: {integrity: sha512-mZIu9oa4tQTlGiOJHk6D3LdJlqFqF6oNOSn6S6UVJtzfs9UsY9/dhMEbAVTwElxUtJnjpf6yA062+oBp+eOyPg==}
+  '@openzeppelin/contracts-upgradeable@5.4.0':
+    resolution: {integrity: sha512-STJKyDzUcYuB35Zub1JpWW58JxvrFFVgQ+Ykdr8A9PGXgtq/obF5uoh07k2XmFyPxfnZdPdBdhkJ/n2YxJ87HQ==}
     peerDependencies:
-      '@openzeppelin/contracts': 5.2.0
+      '@openzeppelin/contracts': 5.4.0
 
   '@openzeppelin/contracts@4.7.3':
     resolution: {integrity: sha512-dGRS0agJzu8ybo44pCIf3xBaPQN/65AIXNgK8+4gzKd5kbvlqyxryUYVLJv7fK98Seyd2hDZzVEHSWAh0Bt1Yw==}
@@ -398,10 +402,6 @@ packages:
   chai@4.5.0:
     resolution: {integrity: sha512-RITGBfijLkBddZvnn8jdqoTypxvqbOLYQkGGxXzeFjVHvudaPw0HNFD9x928/eUwYWd2dPCugVqspGALTZZQKw==}
     engines: {node: '>=4'}
-
-  chainlink-ccip#76af0eb3023d1a704a407098718854b5da6ae10d@https://codeload.github.com/smartcontractkit/chainlink-ccip/tar.gz/76af0eb3023d1a704a407098718854b5da6ae10d:
-    resolution: {tarball: https://codeload.github.com/smartcontractkit/chainlink-ccip/tar.gz/76af0eb3023d1a704a407098718854b5da6ae10d}
-    version: 0.0.0
 
   chalk@4.1.2:
     resolution: {integrity: sha512-oKnbhFyRIXpUuez8iBMmyEa4nbj4IOQyuhc/wy9kY7/WVPcwIO9VA668Pu8RkO7+0G76SLROeyw9CpQ061i4mA==}
@@ -1135,6 +1135,8 @@ snapshots:
 
   '@babel/runtime@7.27.1': {}
 
+  '@chainlink/contracts-ccip@https://codeload.github.com/smartcontractkit/chainlink-ccip/tar.gz/76af0eb3023d1a704a407098718854b5da6ae10d': {}
+
   '@chainlink/contracts@1.4.0(ethers@5.8.0)':
     dependencies:
       '@arbitrum/nitro-contracts': 3.0.0
@@ -1658,7 +1660,7 @@ snapshots:
 
   '@openzeppelin/contracts-upgradeable@4.9.6': {}
 
-  '@openzeppelin/contracts-upgradeable@5.2.0(@openzeppelin/contracts@5.2.0)':
+  '@openzeppelin/contracts-upgradeable@5.4.0(@openzeppelin/contracts@5.2.0)':
     dependencies:
       '@openzeppelin/contracts': 5.2.0
 
@@ -1790,8 +1792,6 @@ snapshots:
       loupe: 2.3.7
       pathval: 1.1.1
       type-detect: 4.1.0
-
-  chainlink-ccip#76af0eb3023d1a704a407098718854b5da6ae10d@https://codeload.github.com/smartcontractkit/chainlink-ccip/tar.gz/76af0eb3023d1a704a407098718854b5da6ae10d: {}
 
   chalk@4.1.2:
     dependencies:
