@@ -35,8 +35,8 @@
     "semver": "^7.6.3",
     "@chainlink/contracts": "1.4.0",
     "@chainlink/contracts-ccip": "https://github.com/smartcontractkit/chainlink-ccip#76af0eb3023d1a704a407098718854b5da6ae10d",
-    "@openzeppelin/contracts": "5.2.0",
-    "@openzeppelin/contracts-upgradeable": "5.2.0"
+    "@openzeppelin/contracts": "5.4.0",
+    "@openzeppelin/contracts-upgradeable": "5.4.0"
   },
   "devDependencies": {
     "solhint": "^5.0.5",
