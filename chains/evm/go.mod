@@ -1,4 +1,4 @@
-module github.com/smartcontractkit/ccip-contract-examples
+module github.com/smartcontractkit/ccip-contract-examples/chains/evm
 
 go 1.24.4
 
