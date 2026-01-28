@@ -1,6 +1,6 @@
-module github.com/smartcontractkit/ccip-contract-examples/chains/evm
+module github.com/smartcontractkit/ccip-contract-examples-internal
 
-go 1.24.4
+go 1.24
 
 require (
 	github.com/ethereum/go-ethereum v1.15.11

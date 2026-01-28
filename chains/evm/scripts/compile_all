@@ -6,6 +6,8 @@ echo " ┌───────────────────────�
 echo " │             Compiling contracts...           │"
 echo " └──────────────────────────────────────────────┘"
 
+OPTIMIZE_RUNS_BURN_MINT_FAST_TRASNFER_TOKEN_POOL=3000
+OPTIMIZE_RUNS_HYBRID_WITH_EXTERNAL_MINTER_FAST_TRASNFER_TOKEN_POOL=500
 CONTRACTS_DIR="$( cd "$(dirname "$0")" >/dev/null 2>&1 ; cd ../ && pwd -P )"
 ABI_DIR="$CONTRACTS_DIR"/abi/
 mkdir -p "$ABI_DIR"
@@ -13,21 +15,31 @@ export FOUNDRY_PROFILE="compile"
 PROJECT="default"
 
 compileContract() {
+  local path="$1"
+  local sourceDir="$2"
+
   local contract
-  contract=$(basename "$1")
+  contract=$(basename "$path")
   echo "Compiling" "$contract"
+
+  # Determine source path
+  local sourcePath
+  if [ -n "$sourceDir" ]; then
+    echo "Compiling from: $sourceDir"
+    sourcePath="$CONTRACTS_DIR/$sourceDir/$path.sol"
+  else
+    sourcePath="$CONTRACTS_DIR/contracts/$path.sol"
+  fi
 
   DIR=$CONTRACTS_DIR/solc/$PROJECT/$contract
 
-  local command
-  command="forge build $CONTRACTS_DIR/contracts/"$1.sol" \
-   --root $CONTRACTS_DIR \
+  forge build "$sourcePath" \
+   --root "$CONTRACTS_DIR" \
+   $(getOptimizations "$contract") \
    --extra-output-files bin abi metadata \
    --build-info \
-   --build-info-path $DIR/build \
-   -o $DIR"
-
-  $command
+   --build-info-path "$DIR/build" \
+   -o "$DIR"
 
   # Move the build info to an expected file name
   mv $(find $DIR/build -type f -name '*.json' ! -name 'build.json') $DIR/build/build.json
@@ -36,7 +48,25 @@ compileContract() {
   cp "$CONTRACTS_DIR"/solc/$PROJECT/"$contract"/"$contract".sol/"$contract".abi.json "$ABI_DIR""$contract".abi
 }
 
+function getOptimizations() {
+    local optimize_runs_override=""
+
+    case $1 in
+      "BurnMintWithExternalMinterFastTransferTokenPool")
+        optimize_runs_override="--optimizer-runs $OPTIMIZE_RUNS_BURN_MINT_FAST_TRASNFER_TOKEN_POOL"
+        ;;
+      "HybridWithExternalMinterFastTransferTokenPool")
+        optimize_runs_override="--optimizer-runs $OPTIMIZE_RUNS_HYBRID_WITH_EXTERNAL_MINTER_FAST_TRASNFER_TOKEN_POOL"
+        ;;
+    esac
+
+    echo "$optimize_runs_override"
+}
+
 compileContract stablecoin-governor/TokenGovernor
-compileContract stablecoin-governor/BurnMintWithExternalMinterTokenPool
-compileContract stablecoin-governor/HybridWithExternalMinterTokenPool
+compileContract stablecoin-governor/BurnMintWithExternalMinterFastTransferTokenPool
+compileContract stablecoin-governor/HybridWithExternalMinterFastTransferTokenPool
 compileContract stablecoin-governor/test/utils/Stablecoin
+
+compileContract @openzeppelin/contracts/proxy/transparent/TransparentUpgradeableProxy node_modules
+compileContract @openzeppelin/contracts/proxy/transparent/ProxyAdmin node_modules
