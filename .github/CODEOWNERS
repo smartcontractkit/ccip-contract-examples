@@ -1,2 +1,4 @@
 # Root
-* @smartcontractkit/ccip-onchain
+
+* @smartcontractkit/core-solidity @smartcontractkit/ccip-onchain
+
