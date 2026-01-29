@@ -24,11 +24,11 @@ importers:
         specifier: ^0.6.0
         version: 0.6.0
       '@openzeppelin/contracts':
-        specifier: 5.2.0
-        version: 5.2.0
+        specifier: 5.3.0
+        version: 5.3.0
       '@openzeppelin/contracts-upgradeable':
-        specifier: 5.2.0
-        version: 5.2.0(@openzeppelin/contracts@5.2.0)
+        specifier: 5.3.0
+        version: 5.3.0(@openzeppelin/contracts@5.3.0)
       semver:
         specifier: ^7.6.3
         version: 7.7.1
@@ -252,10 +252,10 @@ packages:
   '@openzeppelin/contracts-upgradeable@4.9.6':
     resolution: {integrity: sha512-m4iHazOsOCv1DgM7eD7GupTJ+NFVujRZt1wzddDPSVGpWdKq1SKkla5htKG7+IS4d2XOCtzkUNwRZ7Vq5aEUMA==}
 
-  '@openzeppelin/contracts-upgradeable@5.2.0':
-    resolution: {integrity: sha512-mZIu9oa4tQTlGiOJHk6D3LdJlqFqF6oNOSn6S6UVJtzfs9UsY9/dhMEbAVTwElxUtJnjpf6yA062+oBp+eOyPg==}
+  '@openzeppelin/contracts-upgradeable@5.3.0':
+    resolution: {integrity: sha512-yVzSSyTMWO6rapGI5tuqkcLpcGGXA0UA1vScyV5EhE5yw8By3Ewex9rDUw8lfVw0iTkvR/egjfcW5vpk03lqZg==}
     peerDependencies:
-      '@openzeppelin/contracts': 5.2.0
+      '@openzeppelin/contracts': 5.3.0
 
   '@openzeppelin/contracts@4.7.3':
     resolution: {integrity: sha512-dGRS0agJzu8ybo44pCIf3xBaPQN/65AIXNgK8+4gzKd5kbvlqyxryUYVLJv7fK98Seyd2hDZzVEHSWAh0Bt1Yw==}
@@ -263,8 +263,8 @@ packages:
   '@openzeppelin/contracts@4.9.6':
     resolution: {integrity: sha512-xSmezSupL+y9VkHZJGDoCBpmnB2ogM13ccaYDWqJTfS3dbuHkgjuwDFUmaFauBCboQMGB/S5UqUl2y54X99BmA==}
 
-  '@openzeppelin/contracts@5.2.0':
-    resolution: {integrity: sha512-bxjNie5z89W1Ea0NZLZluFh8PrFNn9DH8DQlujEok2yjsOlraUPKID5p1Wk3qdNbf6XkQ1Os2RvfiHrrXLHWKA==}
+  '@openzeppelin/contracts@5.3.0':
+    resolution: {integrity: sha512-zj/KGoW7zxWUE8qOI++rUM18v+VeLTTzKs/DJFkSzHpQFPD/jKKF0TrMxBfGLl3kpdELCNccvB3zmofSzm4nlA==}
 
   '@pnpm/config.env-replace@1.1.0':
     resolution: {integrity: sha512-htyl8TWnKL7K/ESFa1oW2UB5lVDxuF5DpM7tBi6Hu2LNL3mWkIzNLG6N4zoCUP1lCKNxWy/3iu8mS8MvToGd6w==}
@@ -1658,15 +1658,15 @@ snapshots:
 
   '@openzeppelin/contracts-upgradeable@4.9.6': {}
 
-  '@openzeppelin/contracts-upgradeable@5.2.0(@openzeppelin/contracts@5.2.0)':
+  '@openzeppelin/contracts-upgradeable@5.3.0(@openzeppelin/contracts@5.3.0)':
     dependencies:
-      '@openzeppelin/contracts': 5.2.0
+      '@openzeppelin/contracts': 5.3.0
 
   '@openzeppelin/contracts@4.7.3': {}
 
   '@openzeppelin/contracts@4.9.6': {}
 
-  '@openzeppelin/contracts@5.2.0': {}
+  '@openzeppelin/contracts@5.3.0': {}
 
   '@pnpm/config.env-replace@1.1.0': {}
 
